@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: rgb(52, 167, 220);
+    background-image: url('https://source.unsplash.com/1600x900/?airport');
+}
+.card {
+    background: #858579d0;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+}
+
+h1.Titulo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.Instrucciones {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin: .5em;
+    border-radius: 50%;
+    border: none;
+    height: 3em;
+    width: 3.4em;
+    outline: none;
+    background: gray;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+input.search-bar {
+    border: none;
+    outline: none;
+    padding: .5em;
+    border-radius: 20px;
+    background-color: #d4c3c3d0;
+    color: black;
+    font-family: inherit;
+    font-size: 110%;
+    width: calc(100% - 90px);
+}
+
+button:hover {
+    background-color: #b4afaf;
+}
+
+.flex {
+    display: flex;
+    align-items: center ;
+}
+
+h1.Temperatura {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.Descripcion {
+    text-transform: capitalize;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "proyecto1-myp",
+  "version": "1.0.0",
+  "description": "Proyecto 1 de la materia de modelado y programación, consiste en dado tres mil vuelos devolver el crima de la ciudad origen y de la ciudad destino, programa modelado para sobrecargos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImBetaRay/Proyecto1-MyP.git"
+  },
+  "author": "pablocro & ImBetaRay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImBetaRay/Proyecto1-MyP/issues"
+  },
+  "homepage": "https://github.com/ImBetaRay/Proyecto1-MyP#readme"
+}

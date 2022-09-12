@@ -1,20 +1,22 @@
+
+
 let weather = {
-    apikey: "Aquí va la api key.",
+    apikey: "",
    
     fetchWeather: function(city) {
-        var loation;
-        if(typeof city == String){
-            "https://api.openweathermap.org/data/2.5/weather?q="
+        var location;
+        if(typeof city == "string"){
+            location = "https://api.openweathermap.org/data/2.5/weather?q="
             + city + "&units=metric&APPID="
             + this.apikey;
-        } else if (typeof city == Array){
-            "https://api.openweathermap.org/data/2.5/weather?lat="
+        } else if (typeof city == "object"){
+            location = "https://api.openweathermap.org/data/2.5/weather?lat="
             + city[0] + "&lon=" + city[1] + "&units=metric&APPID="
-            + this.apikey
+            + this.apikey;
         }
         
         fetch(
-            location
+            location  
             ).then(function(response) {
                 if (!response.ok) {
                   document.querySelector("div.Instrucciones").innerText =
@@ -40,15 +42,15 @@ let weather = {
 };
 
 document.querySelector(".search button").addEventListener("click", () => weather.search());
-
-document
-  .querySelector(".search-bar")
-  .addEventListener("keyup", function (event) {
+document.querySelector(".search-bar").addEventListener("keyup", function (event) {
     if (event.key == "Enter") {
       weather.search();
     }
   });
 
+window.onload = function() {
   navigator.geolocation.getCurrentPosition((localizacion) => {
-    fetchWeather([localizacion.latitude, localizacion.longitude]);    
-  }, (msnErr) => console.log(msnErr));
+    weather.fetchWeather([localizacion.coords.latitude, localizacion.coords.longitude]);    
+    }, (msnErr) => console.log(msnErr));
+  };
+

@@ -12,7 +12,7 @@ var bdd;
 
 let weather = {
     apikey: "",
-    cache: {},
+    cache: Array(),
     fetchWeather: function(city) {
         var location;
         if (typeof city == "object"){
@@ -29,8 +29,12 @@ let weather = {
             + city + "&units=metric&APPID="
             + this.apikey + "&lang=es";
         } 
-
-        fetch(
+        
+        try {
+          var temp = this.cache.find(item => item.direccion == location);
+          this.displayWeather(temp.clima);
+        } catch (error) {
+          fetch(
             location  
             ).then(function(response) {
                 if (!response.ok) {
@@ -41,7 +45,12 @@ let weather = {
                 document.querySelector("div.Instrucciones").innerText =
                   "Introduzca el numero o el destino de su ticket:";
                 return response.json();
-              }).then((data) => this.displayWeather(data));
+              }).then((data) => {
+                this.displayWeather(data)
+                this.cache.push({direccion: location, clima: data});
+              });
+        }
+          
     },
     displayWeather: function(data) {
         const {name} = data;

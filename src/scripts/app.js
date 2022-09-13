@@ -1,20 +1,35 @@
+var bdd;
+    $.ajax({
+      type: "GET",  
+      url: "../resources/data/datasetModificado.csv",
+      dataType: "text",       
+      success: function(response)  
+      {
+        bdd = $.csv.toObjects(response);  
+      }   
+    });
 
 
 let weather = {
     apikey: "",
-   
+    cache: {},
     fetchWeather: function(city) {
         var location;
-        if(typeof city == "string"){
-            location = "https://api.openweathermap.org/data/2.5/weather?q="
-            + city + "&units=metric&APPID="
-            + this.apikey;
-        } else if (typeof city == "object"){
+        if (typeof city == "object"){
             location = "https://api.openweathermap.org/data/2.5/weather?lat="
             + city[0] + "&lon=" + city[1] + "&units=metric&APPID="
             + this.apikey;
-        }
-        
+        } else if (Math.floor(city) == city) {
+          var vueloDestino = bdd.find(item => Math.floor(city) == item.No_Vuelo); 
+          location = "https://api.openweathermap.org/data/2.5/weather?lat="
+            + vueloDestino.destination_latitude + "&lon=" + vueloDestino.destination_longitude + "&units=metric&APPID="
+            + this.apikey;
+        } else {  
+            location = "https://api.openweathermap.org/data/2.5/weather?q="
+            + city + "&units=metric&APPID="
+            + this.apikey;
+        } 
+
         fetch(
             location  
             ).then(function(response) {
@@ -23,6 +38,8 @@ let weather = {
                   "Clima no encontrado, vuelva a intentarlo:    ";
                   throw new Error("Clima no encontrado.");
                 }
+                document.querySelector("div.Instrucciones").innerText =
+                  "Introduzca el numero o el destino de su ticket:";
                 return response.json();
               }).then((data) => this.displayWeather(data));
     },
@@ -40,6 +57,9 @@ let weather = {
         this.fetchWeather(document.querySelector(".search-bar").value);
     }
 };
+
+
+
 
 document.querySelector(".search button").addEventListener("click", () => weather.search());
 document.querySelector(".search-bar").addEventListener("keyup", function (event) {

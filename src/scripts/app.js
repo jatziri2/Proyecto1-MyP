@@ -18,16 +18,16 @@ let weather = {
         if (typeof city == "object"){
             location = "https://api.openweathermap.org/data/2.5/weather?lat="
             + city[0] + "&lon=" + city[1] + "&units=metric&APPID="
-            + this.apikey;
+            + this.apikey + "&lang=es";
         } else if (Math.floor(city) == city) {
           var vueloDestino = bdd.find(item => Math.floor(city) == item.No_Vuelo); 
           location = "https://api.openweathermap.org/data/2.5/weather?lat="
             + vueloDestino.destination_latitude + "&lon=" + vueloDestino.destination_longitude + "&units=metric&APPID="
-            + this.apikey;
+            + this.apikey + "&lang=es";
         } else {  
             location = "https://api.openweathermap.org/data/2.5/weather?q="
             + city + "&units=metric&APPID="
-            + this.apikey;
+            + this.apikey + "&lang=es";
         } 
 
         fetch(
@@ -50,16 +50,13 @@ let weather = {
         const {speed} = data.wind;
         document.querySelector(".Ciudad").innerText = "Clima de " + name;
         document.querySelector(".Descripcion").innerText = description;
-        document.querySelector(".Temperatura").innerText = temp + "C";
+        document.querySelector(".Temperatura").innerText = temp + "°C";
 
     },
     search: function () {
         this.fetchWeather(document.querySelector(".search-bar").value);
     }
 };
-
-
-
 
 document.querySelector(".search button").addEventListener("click", () => weather.search());
 document.querySelector(".search-bar").addEventListener("keyup", function (event) {

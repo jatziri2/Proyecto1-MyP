@@ -1,5 +1,6 @@
-# Proyecto1-MyP
-Web Service
+# Proyecto1-MyP Web Service
+
+Creación de una pagina web para cosultar el clima de 3000 vuelos diarios o de la ubiación deseada haciendo uso de javascript, html y css.
 
 ## Ejecucion
 
@@ -14,3 +15,5 @@ Y para ejecutarlo nos situaremos en la carpeta src y ejecutaremos el siguiente c
 ```bash
 ws
 ```
+
+Posteriormente buscar en el navegador cualquiera de los urls dados en la terminal.

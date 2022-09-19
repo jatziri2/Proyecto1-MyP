@@ -17,3 +17,9 @@ ws
 ```
 
 Posteriormente buscar en el navegador cualquiera de los urls dados en la terminal.
+
+## Versiones del software
+
+npm Version: 8.19.21
+node Version: 18.8.00
+jquery-csv Version: 1.0.21    

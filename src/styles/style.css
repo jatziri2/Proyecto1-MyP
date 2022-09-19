@@ -28,6 +28,7 @@ h1.Titulo {
     display: flex;
     justify-content: center;
     align-content: center;
+    margin-left: -4em;
 }
 
 .search {
@@ -73,8 +74,12 @@ button:hover {
 h1.Temperatura {
     margin: 0;
     margin-bottom: 10px;
+    margin-left: 1em;
 }
 
 .Descripcion {
-    text-transform: capitalize;
+    display: block;
+}
+.Descripcion::first-letter{
+    text-transform: uppercase;
 }

@@ -1,0 +1,17 @@
+Las pruebas se realizaron principalmente desde el navegador:
+
+Para la primera versión donde solo se podia buscar la ciudad:
+    Se probó si no se pedia nada, si se ponia una ciudad inexistente y si se daba una ciudad correcta,
+    para los tres casos la pagina permanecio estable.
+
+Para la base de datos se probo viendo si no existia el archivo y si el archivo no contenia la columna
+deseada 
+
+Una vez si implementaron la busqueda por coordenadas y por id se comprobo que dando cualquier dato tanto
+viable como no viable la aplicación permaneciera estable.
+
+Para el cache tambien se comprobó que efectivamente se accediera desde el cache y no solo se volvera hacer
+la petición, y tambien se comprobó que los datos se borrasen pasado el tiempo deseado.
+
+El codigo no se muestra porque como es mencionado las prueba se ejecutaron desde el navegador y usando 
+la terminal de este para corrobar la correctez del programa.

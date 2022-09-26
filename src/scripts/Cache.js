@@ -23,10 +23,13 @@ export class Cache {
   
     /**
      * Funcion para buscar mediante el URL el clima con tal URL dentro del cache.
-     * @param {String} requestURL El URL del clima que deseamos obtener.
+     * @param {string} requestURL El URL del clima que deseamos obtener.
      * @returns El clima buscado, undefined si no existe tal clima.
      */
     searchByURL(requestURL){
+      if (typeof requestURL != 'string') {
+        return undefined
+      }
       return this.data.find(item => item.URL == requestURL);
     }
 }

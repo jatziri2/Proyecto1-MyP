@@ -44,7 +44,7 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
   * a la ubicación actual y se muestra en pantalla.
 */  
 window.onload = function() {
-  weather = new Weather('2ac2c143ed22599cebf3614a4b94cc5c')
+  weather = new Weather()
 
   $.ajax({
     type: "GET",  

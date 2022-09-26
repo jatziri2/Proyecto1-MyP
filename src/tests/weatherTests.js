@@ -1,5 +1,9 @@
 import { Weather } from "../scripts/Weather.js";
 
+function main() {
+    
+}
+
 const weather = new Weather('Mi key')
 
 const objectURLTest = [36.20, 138.25]

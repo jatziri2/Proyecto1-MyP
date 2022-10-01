@@ -17,12 +17,12 @@
 <body>
     <div class="Titulo">
         <h1 class="Bienvenida">Bienvenidos al buscador de climas</h1>
-        <h2 class="Lugar">Origen</h2>
+        <h2 class="Lugar_origen">Origen</h2>
         <div class="Clima_origen">
             <h2 class="Ciudad_origen">Clima de CDMX</h2>
             <h1 class="Temperatura_origen">21°C</h1>
             <div class="flex" >
-                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon">
+                <img id="img-Origen" src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon">
                 <h3 class="Descripcion_origen">nublado</div>
             </div>
         </div>
@@ -32,32 +32,32 @@
         <h1 class="Titulo_buscador">Buscador de vuelos</h1>
         <div class="Key">Ingrese su key:</div>
         <div class="API_Key">
-            <input type="Key" class="search-bar" >
-            <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" 
+            <input id="api-bar" type="Key" class="search-bar" >
+            <button id="api-button"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" 
                 width="1.5em" xmlns="http://www.w3.org/2000/svg">
                 <path 
                 d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z">
                 </path>
             </svg></button>
+        </div>
         <h2 class="Estado_key">Key invalida ❌</h2>
-        </div>
         
-        <div class="Instrucciones">Introduzca el numero de su ticket o su destino:</div>
+        <div class="Instrucciones">Introduzca la clave del aeropuerto destino:</div>
         <div class="search">
-            <input type="text" class="search-bar" placeholder="Ejemplo: ''1253'' o ''Monterrey''' ">
-            <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" 
+            <input id="weather-bar" type="text" class="search-bar" placeholder="Ejemplo: ''MTY'' o ''Monterrey''' ">
+            <button id="weather-button"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" 
                 width="1.5em" xmlns="http://www.w3.org/2000/svg">
                 <path 
                 d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z">
                 </path>
             </svg></button>
         </div>
-        <h2 class="Lugar">Destino</h2>
+        <h2 class="Lugar_destino">Destino</h2>
         <div class="Clima">
             <h2 class="Ciudad">Clima de CDMX</h2>
             <h1 class="Temperatura">21°C</h1>
             <div class="flex" >
-                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon">
+                <img id="img-dest"" src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon">
                 <h3 class="Descripcion">nublado</div>
             </div>
         </div>

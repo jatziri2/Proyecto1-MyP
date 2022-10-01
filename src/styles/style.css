@@ -11,13 +11,16 @@ body {
 h1.Bienvenida {
     font-size: 1.6em;
 }
-h2.Lugar{
+h2.Lugar_origen{
     font-size: 2em;
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: center;
 }
 
+.Clima_origen{
+    display: none;
+}
 
 h1.Temperatura_origen {
     margin: 0;
@@ -70,17 +73,17 @@ h1.Titulo_buscador {
 h2.Estado_key {
     justify-content: center;
     align-content: center;
-    display: flex;
+    display: none;
 }
 .Instrucciones {
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: center;
     margin-left: -4em;
 }
 
 .search {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -112,6 +115,14 @@ input.search-bar {
 
 button:hover {
     background-color: #b4afaf;
+}
+
+h2.Lugar_destino{
+    display : none;
+}
+
+.Clima{
+    display: none;
 }
 
 .flex {

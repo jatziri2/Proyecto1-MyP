@@ -1,12 +1,17 @@
 import { Cache } from "./Cache.js";
 import { DataBase } from "./DataBase.js";
 
+/**
+ * Clase implementada para la administración del clima
+ * es la encargada de poder generar el URL de la petición así como de haver la petición
+ * además cuenta con una base de datos y un cache.
+ */
 export class Weather {
 
     constructor(apiKey) {
-        this.apikey = apiKey
-        this.cache = new Cache()        
-        this.dataBase = new DataBase()
+        this.apikey = apiKey;
+        this.cache = new Cache();        
+        this.dataBase = new DataBase();
     }
 
     /**
@@ -17,11 +22,11 @@ export class Weather {
      */
      async setApiKey(apiKey) {
         if (typeof apiKey != 'string') {
-            throw 'La api no es un string'
+            throw 'La api no es un string';
         }
-        var lastKey = this.apikey
+        var lastKey = this.apikey;
         this.apikey = apiKey;
-        await this.fetchWeather(this.getRequestURL("mexico")).catch((error) => this.apikey = lastKey)
+        await this.fetchWeather(this.getRequestURL("mexico")).catch((error) => this.apikey = lastKey);
     }
 
     /**
@@ -29,9 +34,9 @@ export class Weather {
      */
     setDataBase(dataBase) {
         if (typeof dataBase != 'DataBase') {
-            throw 'No es una base de datos'
+            throw 'No es una base de datos';
         }
-        this.dataBase = dataBase
+        this.dataBase = dataBase;
     }
 
     /**
@@ -39,7 +44,7 @@ export class Weather {
      * @returns el apiKey del objeto
      */
     getApiKey(){
-        return this.apikey
+        return this.apikey;
     }
 
     /**
@@ -52,13 +57,13 @@ export class Weather {
         var location;
         
         if (typeof city == 'object') {
-            location = "lat=" + city[0] + "&lon=" + city[1]  
+            location = "lat=" + city[0] + "&lon=" + city[1];  
         } else if (typeof city == 'string' && city.length == 3) {
-            var destination = this.dataBase.searchByDest(city.toUpperCase())
+            var destination = this.dataBase.searchByDest(city.toUpperCase());
                 location = "lat=" + destination.destination_latitude + 
-                           "&lon=" + destination.destination_longitude
+                           "&lon=" + destination.destination_longitude;
         } else {
-            location = 'q=' + city.toUpperCase()
+            location = 'q=' + city.toUpperCase();
         } 
         return "https://api.openweathermap.org/data/2.5/weather?" + 
                 location + "&units=metric&APPID=" + this.apikey + "&lang=es";
@@ -73,7 +78,7 @@ export class Weather {
     async fetchWeather(requestURL) {        
           var temp = this.cache.searchByURL(requestURL); 
           if (temp != undefined) {
-            return temp.weather
+            return temp.weather;
           }
           return await fetch(
             requestURL

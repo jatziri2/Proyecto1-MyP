@@ -1,7 +1,11 @@
+/**
+ * Clase para la administración temporal de datos, se usa en el proyecto para no realizar peticiones dobles
+ * haciendo más eficiente la aplicación así como para evitar algún baneo de la key.
+ */
 export class Cache {
     constructor(){
-      this.data = Array()
-      this.resetTime = 300000
+      this.data = Array();
+      this.resetTime = 300000;
     }
     /**
      * Función para añadir elementos al cache, mediante la función <code>setTimeout</code> que es una promesa
@@ -10,15 +14,15 @@ export class Cache {
      */
     push(element){
       if (element == null || element == undefined) {
-        throw 'No se pudó añadir el elemento'
+        throw 'No se pudó añadir el elemento';
       }
 
-      var data = this.data
-      data.push(element)
+      var data = this.data;
+      data.push(element);
       setTimeout( function(){
-        const index = data.indexOf(element)
-        data.splice(index, 1)
-      }, this.resetTime)
+        const index = data.indexOf(element);
+        data.splice(index, 1);
+      }, this.resetTime);
     }
   
     /**
@@ -28,7 +32,7 @@ export class Cache {
      */
     searchByURL(requestURL){
       if (typeof requestURL != 'string') {
-        return undefined
+        return undefined;
       }
       return this.data.find(item => item.URL == requestURL);
     }

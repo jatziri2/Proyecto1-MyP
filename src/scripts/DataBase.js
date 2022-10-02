@@ -1,6 +1,12 @@
+/**
+ * Clase para la administración de una base de datos
+ */
 export class DataBase {
   
   constructor(bdd){
+    if (typeof bdd != 'object') {
+      this.bdd = null;
+    }
     this.bdd = bdd;
   }
 
@@ -11,7 +17,7 @@ export class DataBase {
    */
   searchByDest(dest){
     if (typeof dest != 'string') {
-      return undefined
+      return undefined;
     }
     return this.bdd.find(item => dest == item.destination);
   }

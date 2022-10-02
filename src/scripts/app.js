@@ -1,5 +1,6 @@
 import { DataBase } from "./DataBase.js";
 import { Weather } from "./Weather.js";
+import "../node_modules/jquery-csv/src/jquery.csv.js";
 
 var weather;
 
@@ -45,7 +46,22 @@ function displayWeatherOrigin(data) {
   * @returns La promesa que contiene el clima dada la información en la barra de busqueda.
 */
 function search(stringToSearch) {
-  return weather.fetchWeather(weather.getRequestURL(stringToSearch))
+  return weather.fetchWeather(weather.getRequestURL(stringToSearch));
+}
+
+/**
+ * Función auxiliar que se encarga de hacer visibles los elementos una vez se es dada la key correcta.
+ */
+function showSearchear() {
+  document.querySelector(".Estado_key").innerText = "KEY Aprobada ✔️, puede buscar el clima.";
+  document.querySelector(".Lugar_origen").style.display = "flex";
+  document.querySelector(".Clima_origen").style.display = "block";
+  document.querySelector(".Estado_key").style.display = "flex";
+  document.querySelector(".API_Key").style.display = "none";
+  document.querySelector(".Key").style.display = "none";
+  document.querySelector(".Instrucciones").style.display = "flex";
+  document.querySelector(".search").style.display = "flex";
+  document.querySelector(".Clima").style.display = "block";
 }
 
 /**
@@ -54,27 +70,19 @@ function search(stringToSearch) {
  * @param {string} apiKey La llave con la que se harán las peticiones.
  */
 async function startAPIKey(apiKey){
-  await weather.setApiKey(apiKey)
+  await weather.setApiKey(apiKey);
   if (weather.getApiKey() != apiKey) {
-    document.querySelector(".Estado_key").innerText = "Key invalida ❌"
-    document.querySelector(".Estado_key").style.display = "flex"
-    return 
+    document.querySelector(".Estado_key").innerText = "Key invalida ❌";
+    document.querySelector(".Estado_key").style.display = "flex";
+    return;
   }
   navigator.geolocation.getCurrentPosition((localization) => {
     var currentWeather = weather.fetchWeather(
       weather.getRequestURL([localization.coords.latitude, localization.coords.longitude])
     );
-    displayWeatherOrigin(currentWeather)    
+    displayWeatherOrigin(currentWeather);    
   }, (msnErr) => console.log(msnErr));
-  document.querySelector(".Estado_key").innerText = "KEY Aprobada ✔️, puede buscar el clima."
-  document.querySelector(".Lugar_origen").style.display = "flex"
-  document.querySelector(".Clima_origen").style.display = "block"
-  document.querySelector(".Estado_key").style.display = "flex"
-  document.querySelector(".API_Key").style.display = "none"
-  document.querySelector(".Key").style.display = "none"
-  document.querySelector(".Instrucciones").style.display = "flex"
-  document.querySelector(".search").style.display = "flex"
-  document.querySelector(".Clima").style.display = "block"
+  showSearchear();
 }
 
 /**
@@ -98,7 +106,7 @@ window.onload = function() {
 
   document.querySelector("button[id=weather-button]").addEventListener("click", function(){
     displayWeather(search(document.querySelector("input[id=weather-bar]").value))
-  })
+  });
   
   document.querySelector("input[id=weather-bar]").addEventListener("keyup", function (event) {
       if (event.key == "Enter") {
@@ -108,7 +116,7 @@ window.onload = function() {
   
   document.querySelector("button[id=api-button]").addEventListener("click", function(){
     startAPIKey(document.querySelector("input[id=api-bar]").value)
-  })
+  });
   
   document.querySelector("input[id=api-bar]").addEventListener("keyup", function (event) {
       if (event.key == "Enter") {

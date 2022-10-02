@@ -13,7 +13,7 @@ function main() {
     
     weather.setApiKey("")
     console.assert("" == weather.getApiKey(), errMssg)
-    console.log("cola")
+
 
     weather.setApiKey("Mi key")
     console.assert("Mi key" == weather.getApiKey(), errMssg)

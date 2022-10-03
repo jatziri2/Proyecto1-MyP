@@ -4,7 +4,8 @@
   "description": "Proyecto 1 de la materia de modelado y programación, consiste en dado tres mil vuelos devolver el crima de la ciudad origen y de la ciudad destino, programa modelado para sobrecargos.",
   "main": "app.js",
   "scripts": {
-    "test": "node ./src/tests/cacheTests.js && node ./src/tests/dataBaseTests.js && node ./src/tests/weatherTests.js"
+    "test": "node ./src/tests/cacheTests.js && node ./src/tests/dataBaseTests.js && node ./src/tests/weatherTests.js",
+    "docs" : "jsdoc -r ."
   },
   "repository": {
     "type": "git",

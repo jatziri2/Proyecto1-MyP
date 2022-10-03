@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Propiedades generales de la pagina, como la fuente de texto, titulo y referencia al css-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,30 @@
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./scripts/app.js" type="module"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
+    <script src="./scripts/jquery-csv.js"></script>
 </head>
 
 <body>
+    <!-- Creación del primer bloque de la pagina, donde dará la bienvenida y aparecerá el clima del origen-->
     <div class="Titulo">
         <h1 class="Bienvenida">Bienvenidos al buscador de climas</h1>
         <h2 class="Lugar_origen">Origen</h2>
+        
+        <!-- Cuadro del clima de origen con sus respectivas propiedades-->
         <div class="Clima_origen">
-            <h2 class="Ciudad_origen">Clima</h2>
-            <h1 class="Temperatura_origen">---</h1>
+            <h2 class="Ciudad_origen">Clima de CDMX</h2>
+            <!-- Estos datos son solamente placeholders, ya que en la implementación, serán reemplazados
+                 por  los que nos proporcione la API de Open weather-->
+            <h1 class="Temperatura_origen">21°C</h1>
             <div class="flex" >
                 <img id="img-Origen" src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon">
-                <h3 class="Descripcion_origen">---</div>
+                <h3 class="Descripcion_origen">nublado</div>
             </div>
         </div>
     </div>
-
+    <!-- Creación del segundo bloque de la pagina, donde estará el buscador de la key, el buscador de clima y el clima-->
     <div class="Buscador">
+        <!-- Buscador de la key-->
         <h1 class="Titulo_buscador">Buscador de vuelos</h1>
         <div class="Key">Ingrese su key:</div>
         <div class="API_Key">
@@ -40,8 +47,11 @@
                 </path>
             </svg></button>
         </div>
+        
+        <!-- Texto que indica el estado de la key-->
         <h2 class="Estado_key">Key invalida ❌</h2>
         
+        <!-- Buscador del clima del destino -->
         <div class="Instrucciones">Introduzca la clave del aeropuerto destino:</div>
         <div class="search">
             <input id="weather-bar" type="text" class="search-bar" placeholder="Ejemplo: ''MTY'' o ''Monterrey''' ">
@@ -52,6 +62,8 @@
                 </path>
             </svg></button>
         </div>
+
+        <!-- Cuadro del clima de destino con sus respectivas propiedades-->
         <h2 class="Lugar_destino">Destino</h2>
         <div class="Clima">
             <h2 class="Ciudad">Clima</h2>

@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ImBetaRay/Proyecto1-MyP#readme",
   "dependencies": {
-    "csv-parse": "^5.3.0",
+    "csv-parse": "^5.5.2",
     "jquery-csv": "^1.0.21"
   }
 }
